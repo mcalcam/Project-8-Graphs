@@ -25,7 +25,7 @@ class Graph:
             raise ValueError ("Weight is not a float")
         if src not in self.graph:
             print("Vertex ", src, " does not exist.")
-            # Check if vertex v2 is a valid vertex
+            
         elif dest not in self.graph:
             print("Vertex ", dest, " does not exist.")
         else:
