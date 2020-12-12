@@ -25,7 +25,6 @@ class Graph:
             raise ValueError ("Weight is not a float")
         if src not in self.graph:
             print("Vertex ", src, " does not exist.")
-            
         elif dest not in self.graph:
             print("Vertex ", dest, " does not exist.")
         else:
@@ -93,7 +92,7 @@ class Graph:
 
     # •__str__: Produce a string representation of the graph that can be used with print().
     def __srt__(self):
-        print("numVertices: ", len(self.graph))
-        print('Vertex\tAdjacency list')
+        print("numVertices:", len(self.graph))
+        print('Vertex\t Adjacency list')
         for vertex in self.graph:
             print(vertex, "\t", self.graph[vertex])
