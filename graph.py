@@ -21,8 +21,8 @@ class Graph:
             raise ValueError ("Source is not a string")
         if not isinstance(dest, str):
             raise ValueError ("Destination is not a string")
-        if not isinstance(weight, int):
-            raise ValueError ("Weight is not an integer")
+        if not isinstance(weight, float) or not isinstance(weight, int):
+            raise ValueError ("Weight is not a float")
         if src not in self.graph:
             print("Vertex ", src, " does not exist.")
             # Check if vertex v2 is a valid vertex
@@ -50,8 +50,6 @@ class Graph:
             return self.graph[src][i][1]
         if not inlist:
             return math.inf 
-        
-
 
     # •dfs(starting_vertex): Return a generator for traversing the graph in depth-first order 
     # starting from the specified vertex. Raise a ValueError if the vertex does not exist.
@@ -72,7 +70,7 @@ class Graph:
     def bfs(self, starting_vertex):
         if starting_vertex not in self.graph:
             raise ValueError ("Starting vertex is not in the graph")
-        visited = [False] * (max(self.graph) + 1)
+        visited = [False] * (len(self.graph) + 1)
         queue = []
         queue.append(starting_vertex)
         visited[starting_vertex] = True
@@ -95,4 +93,7 @@ class Graph:
 
     # •__str__: Produce a string representation of the graph that can be used with print().
     def __srt__(self):
-        pass
+        print("numVertices: ", len(self.graph))
+        print('Vertex\tAdjacency list')
+        for vertex in self.graph:
+            print(vertex, "\t", self.graph[vertex])
